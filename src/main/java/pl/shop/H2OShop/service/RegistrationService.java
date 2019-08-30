@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import pl.shop.H2OShop.domain.User;
+import pl.shop.H2OShop.repository.UserRepository;
 
 @Service
 public class RegistrationService {
@@ -17,9 +18,11 @@ public class RegistrationService {
         this.userService = userService;
     }
 
-    public String registration(User user, Model model) {
+    public String registration(User user, Model model) throws Exception {
         userService.createNewUser(user);
         model.addAttribute("user" , user);
-        return "index";
+        return "successful-registration";
             }
+
+
 }

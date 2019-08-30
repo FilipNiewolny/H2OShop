@@ -1,4 +1,4 @@
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:margin-top="http://www.w3.org/1999/xhtml">
 <div th:replace="fragments/header :: header"></div>
 
 <body>
@@ -19,7 +19,7 @@
 <!-- /container -->
 <!-- /BREADCRUMB -->
 
-<div class="container">
+<div class="container"     style="margin-top:100px;">
     <div class="contenedor">
         <div class="container">
             <div class="row">
@@ -32,7 +32,7 @@
                             <form th:action="@{/register}" th:object="${user}" method="post">
                                 <!--USERNAME-->
                                 <div class="form-group">
-                                    <input type="text" name="username" id="username" class="form-control" placeholder="Username"
+                                    <input type="text" name="userName" id="userName" class="form-control" placeholder="UserName"
                                            required="required">
                                 </div>
                                 <!--FIRSTNAME-->
