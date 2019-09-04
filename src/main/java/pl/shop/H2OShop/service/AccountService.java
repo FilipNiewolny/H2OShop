@@ -19,12 +19,12 @@ public class AccountService {
     }
 
     public String getAccount(Model model, String userName, User user, HttpServletResponse response) {
-        User userByUserName = userRepository.findByUsername(userName).get();
+        User userByUsername = userRepository.findByUsername(userName).get();
 
 
-        model.addAttribute("user", userByUserName);
+        model.addAttribute("user", userByUsername);
 
-        if (userByUserName.isActivated()) {
+        if (userByUsername.isActivated()) {
             return "account";
         } else {
             return "failed-login";
