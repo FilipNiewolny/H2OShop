@@ -62,7 +62,7 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
         }
 
         if (isUser) {
-            return "account";
+            return "index";
         } else if (isAdmin) {
             return "console";
         } else {
