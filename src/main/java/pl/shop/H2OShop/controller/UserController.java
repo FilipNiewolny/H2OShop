@@ -1,5 +1,6 @@
 package pl.shop.H2OShop.controller;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,10 +18,14 @@ public class UserController {
     }
 
 
+    @GetMapping("/login")
+    public String login(Authentication authentication) {
+        return "login";
+    }
 
     @GetMapping("/activate")
     public String authentication(@RequestParam(name = "link") String activationCode){
         userService.authenticate(activationCode);
-        return "index";
+        return "successful-registration";
     }
 }

@@ -18,13 +18,13 @@ public class User implements Serializable {
     private Long id;
 
     @Column(unique = true)
-    private String userName;
+    private String username;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String activationCode;
     private boolean activated = false;
-    @Column(name = "email" , unique = true)
+    @Column( unique = true)
     private String email;
     private String password;
 
