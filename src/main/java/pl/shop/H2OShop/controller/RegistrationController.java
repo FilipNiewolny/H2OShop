@@ -31,7 +31,7 @@ public class RegistrationController {
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public String postRegister(@ModelAttribute User user , BindingResult bindingResult, Model model) throws Exception {
-        UserRegistrationValidator.validate(user , bindingResult);
+        userRegistrationValidator.validate(user , bindingResult);
         if (bindingResult.hasErrors()){
             return "register";
         }

@@ -29,10 +29,14 @@ public class UserRegistrationValidator implements Validator {
         User user = (User) o;
 
         // checks username size and duplicate in database
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors , "username" ,"It cannot be empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors , "username" ,"NotEmpty");
         if(user.getUsername().length() <6 || user.getUsername().length() > 32) {
             errors.rejectValue("username" , "Size.userForm.username");
         }
-
+        if(userService.findUserByUsername(user.getUsername()) != null){
+            errors.rejectValue("username" , "Duplicate.userForm.username");
+        }
     }
+
+    // checks the password for 1 special mark, >8 , <32 ,
 }

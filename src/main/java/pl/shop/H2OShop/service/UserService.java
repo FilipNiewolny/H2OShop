@@ -1,6 +1,5 @@
 package pl.shop.H2OShop.service;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.shop.H2OShop.domain.User;
@@ -38,5 +37,8 @@ public class UserService {
         byActivationCode.setActivated(true);
         byActivationCode.setActivationCode(null);
         userRepository.save(byActivationCode);
+    }
+    public Optional<User> findUserByUsername(String username){
+        return userRepository.findByUsername(username);
     }
 }
