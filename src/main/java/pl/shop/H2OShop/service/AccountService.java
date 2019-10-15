@@ -1,6 +1,7 @@
 package pl.shop.H2OShop.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import pl.shop.H2OShop.domain.User;
@@ -11,15 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 @Service
 public class AccountService {
 
-    private UserRepository userRepository;
-
+    private UserService userService;
     @Autowired
-    public AccountService( UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public AccountService( UserService userService) {
+        this.userService = userService;
     }
 
     public String getAccount(Model model, String userName, User user, HttpServletResponse response) {
-        User userByUsername = userRepository.findByUsername(userName).get();
+        User userByUsername = userService.findByUsername(userName).get();
 
 
         model.addAttribute("user", userByUsername);
@@ -28,6 +28,17 @@ public class AccountService {
             return "account";
         } else {
             return "failed-login";
+        }
+    }
+
+    public String getAccount(Authentication authentication, Model model) {
+        User userByEmail = userService.getUserByEmail(authentication.getName());
+        model.addAttribute("user" , userByEmail);
+
+        if (userByEmail.isActivated()){
+            return "account";
+        }else {
+            return "failedlogin";
         }
     }
 }

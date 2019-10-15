@@ -7,6 +7,7 @@ import pl.shop.H2OShop.repository.UserRepository;
 
 import java.util.Optional;
 import java.util.UUID;
+import java.util.concurrent.Future;
 
 @Service
 public class UserService {
@@ -40,5 +41,13 @@ public class UserService {
     }
     public Optional<User> findUserByUsername(String username){
         return userRepository.findByUsername(username);
+    }
+
+    public Optional<User> findByUsername(String userName) {
+        return userRepository.findByUsername(userName);
+    }
+
+    public Optional<User> getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 }

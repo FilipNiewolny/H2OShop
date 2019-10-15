@@ -56,7 +56,7 @@ public class UserRegistrationValidator implements Validator {
     }
 //      Checks if email is an email if contains '@'.
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty");
-        if (!user.getEmail().contains("@")){
+        if (!user.getEmail().contains("@") || !user.getEmail().contains(".")){
             errors.rejectValue("email", "Contains.userForm.email");
         }
 
