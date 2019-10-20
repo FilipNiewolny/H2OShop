@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class H2OShopApplication {
+public class Training_Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(H2OShopApplication.class, args);
+		SpringApplication.run(Training_Application.class, args);
 	}
 
 }

@@ -19,20 +19,12 @@ public class User implements Serializable {
 
     @Column(unique = true)
     private String username;
-    private String firstName;
-    private String lastName;
-    private String phoneNumber;
     private String activationCode;
     private boolean activated = false;
     @Column( unique = true)
     private String email;
     private String password;
 
-
-    private String address;
-    private String city;
-    private String country;
-    private String zipCode;
 
 
 }

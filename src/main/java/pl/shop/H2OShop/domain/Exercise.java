@@ -17,16 +17,15 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Product implements Serializable {
+public class Exercise implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String type;
+    private Muscle muscle;
     private String description;
-    private double volume;
-    private int availability;
+    private Category category;
     private byte[] image;
 
 }

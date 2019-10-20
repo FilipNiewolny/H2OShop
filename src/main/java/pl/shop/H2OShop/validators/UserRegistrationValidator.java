@@ -49,11 +49,11 @@ public class UserRegistrationValidator implements Validator {
 //            errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
 //        }
 
-//        Checks if phone number has 9 digits
+/*       Checks if phone number has 9 digits
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "phoneNumber", "NotEmpty");
         if (user.getPhoneNumber().toString().length() != 9L ){
             errors.rejectValue("phoneNumber", "Size.userForm.phoneNumber");
-    }
+    }*/
 //      Checks if email is an email if contains '@'.
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty");
         if (!user.getEmail().contains("@") || !user.getEmail().contains(".")){

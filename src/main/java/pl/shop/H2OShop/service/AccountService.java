@@ -32,7 +32,7 @@ public class AccountService {
     }
 
     public String getAccount(Authentication authentication, Model model) {
-        User userByEmail = userService.getUserByEmail(authentication.getName());
+        User userByEmail = userService.getUserByEmail(authentication.getName()).get();
         model.addAttribute("user" , userByEmail);
 
         if (userByEmail.isActivated()){
