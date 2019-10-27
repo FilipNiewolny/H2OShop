@@ -1,15 +1,13 @@
 package pl.shop.Traning_Application.domain;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Data
@@ -23,9 +21,14 @@ public class Exercise implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Muscle muscle;
+
+    @NotEmpty
+    private String name;
+    @NotEmpty
+    private String muscle;
+    @NotEmpty
     private String description;
-    private Category category;
-    private byte[] image;
+   // private Category category;
+    // private byte[] image;
 
 }
