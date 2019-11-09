@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Data
@@ -24,6 +25,9 @@ public class User implements Serializable {
     @Column( unique = true)
     private String email;
     private String password;
+
+    @OneToMany(mappedBy = "user")
+    private List<Training> training;
 
 
 

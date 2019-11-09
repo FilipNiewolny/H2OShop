@@ -1,6 +1,5 @@
 package pl.shop.Traning_Application.domain;
 
-
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Exercise implements Serializable {
+public class Training implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,15 +21,13 @@ public class Exercise implements Serializable {
 
     @NotEmpty
     private String name;
+    private String note;
 
-    @NotEmpty
-    private String description;
-
-    @OneToMany(mappedBy = "exercise")
+    @OneToMany(mappedBy = "training")
     private List<Reps> reps;
 
-    @Enumerated(EnumType.ORDINAL)
-    private Muscle muscle;
+    @ManyToOne
+    private User user;
 
 
 }
