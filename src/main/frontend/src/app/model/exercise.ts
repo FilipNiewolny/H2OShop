@@ -1,6 +1,0 @@
-export class Exercise{
-id:string;
-name:string;
-description:string;
-muscle:string;
-}
