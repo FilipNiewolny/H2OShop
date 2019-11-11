@@ -29,7 +29,7 @@ public class UserService {
             throw new Exception( "That user name is exist");
         String newActivationCode = UUID.randomUUID().toString();
         user.setActivationCode(newActivationCode);
-        emailService.sendAuthenticationEmail(user);
+//        emailService.sendAuthenticationEmail(user);
         userRepository.save(user);
     }
     public void authenticate(String activationCode) {
@@ -48,5 +48,9 @@ public class UserService {
 
     public Optional<User> getUserByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    public User create(User user) {
+        return userRepository.save(user);
     }
 }

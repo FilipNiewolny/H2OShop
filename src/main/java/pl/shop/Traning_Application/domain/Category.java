@@ -1,5 +1,6 @@
 package pl.shop.Traning_Application.domain;
 
+
 public enum Category {
     Sztanga("Sztanga"),
     Hantle("Hantle"),

@@ -15,7 +15,9 @@ import java.util.List;
 @AllArgsConstructor
 public class User implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "user_generator")
+    @SequenceGenerator(name = "user_generator" , sequenceName = "user_seq")
+    @Column(name = "ID" , updatable = false , nullable = false)
     private Long id;
 
     @Column(unique = true)
@@ -25,6 +27,8 @@ public class User implements Serializable {
     @Column( unique = true)
     private String email;
     private String password;
+    @Column(columnDefinition ="varchar(255) default 'USER'" )
+    private String role;
 
     @OneToMany(mappedBy = "user")
     private List<Training> training;

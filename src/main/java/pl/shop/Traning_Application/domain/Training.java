@@ -15,8 +15,9 @@ import java.util.List;
 public class Training implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "training_generator")
+    @SequenceGenerator(name = "training_generator" , sequenceName = "training_seq")
+    @Column(name = "ID" , updatable = false , nullable = false)
     private Long id;
 
     @NotEmpty

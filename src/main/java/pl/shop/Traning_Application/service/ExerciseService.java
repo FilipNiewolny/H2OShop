@@ -3,8 +3,11 @@ package pl.shop.Traning_Application.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.shop.Traning_Application.domain.Exercise;
+import pl.shop.Traning_Application.domain.Muscle;
 import pl.shop.Traning_Application.repository.ExerciseRepository;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -12,14 +15,19 @@ public class ExerciseService {
 
     ExerciseRepository exerciseRepository;
 
+
     @Autowired
     public ExerciseService(ExerciseRepository exerciseRepository) {
         this.exerciseRepository = exerciseRepository;
+
     }
 
     public void saveWithoutNull(Exercise exercise) {
-
         exerciseRepository.save(exercise);
+    }
+
+    public List<Muscle> getAllMuscleName(){
+        return new ArrayList<>(Arrays.asList(Muscle.values()));
     }
 
     public Exercise findById(Long id) {
@@ -37,6 +45,7 @@ public class ExerciseService {
     }
 
     public void save(Exercise exercise) {
+
         exerciseRepository.save(exercise);
     }
 

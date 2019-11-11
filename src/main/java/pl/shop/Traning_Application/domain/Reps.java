@@ -14,7 +14,9 @@ import javax.persistence.*;
 @Builder
 public class Reps {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "reps_generator")
+    @SequenceGenerator(name = "reps_generator" , sequenceName = "reps_seq")
+    @Column(name = "ID" , updatable = false , nullable = false)
     private Long id;
     private int count;
 

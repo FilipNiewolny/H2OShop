@@ -16,8 +16,9 @@ import java.util.List;
 public class Exercise implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "exercise_generator")
+    @SequenceGenerator(name = "exercise_generator" , sequenceName = "exercise_seq")
+    @Column(name = "ID" , updatable = false , nullable = false)
     private Long id;
 
     @NotEmpty
